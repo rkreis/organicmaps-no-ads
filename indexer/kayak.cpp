@@ -117,24 +117,7 @@ string GetKayakHotelURL(const string & countryIsoCode, uint64_t kayakHotelId,
 string GetKayakHotelURLFromURI(const string & countryIsoCode, const string & uri,
                                time_t firstDay, time_t lastDay, bool isReferral)
 {
-  // Elexus Hotel Resort & Spa & Casino,-c7163-h1696321580
-
-  size_t h = uri.rfind("-h");
-  if (h == string::npos)
-    return {};
-
-  size_t c = uri.rfind(",-c", h);
-  if (c == string::npos)
-    return {};
-
-  string kayakHotelName = uri.substr(0, c);
-  uint64_t kayakHotelId;
-  uint64_t kayakCityId;
-  if (!to_uint64(uri.substr(h + 2).c_str(), kayakHotelId) ||
-      !to_uint64(uri.substr(c + 3, h - c - 3).c_str(), kayakCityId))
-    return {};
-
-  return GetKayakHotelURL(countryIsoCode, kayakHotelId, kayakHotelName, kayakCityId, firstDay, lastDay, isReferral);
+  return "";
 }
 
 }  // namespace osm
